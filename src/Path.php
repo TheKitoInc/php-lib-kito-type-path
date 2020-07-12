@@ -14,7 +14,7 @@
  *
  */
 
-namespace Kito\Type\Path;
+namespace Kito\Type;
 
 /**
  *
