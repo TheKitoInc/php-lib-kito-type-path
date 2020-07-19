@@ -7,7 +7,8 @@
  * @category Strings
  * @package  Kito
  * @author   TheKito <TheKito@blktech.com>
- * @license  @license http://opensource.org/licenses/gpl-license.php GNU GPL
+ * @license  http://opensource.org/licenses/gpl-license.php GNU GPL
+ * @link     https://github.com/TheKito/type-path
  */
 namespace Kito\Type;
 
@@ -21,7 +22,9 @@ class Path
      * 
      * @return Path
      */
-    public static function getRoot(string $directorySeparator = DIRECTORY_SEPARATOR): Path
+    public static function getRoot(
+            string $directorySeparator = DIRECTORY_SEPARATOR
+    ): Path
     {
         return new Path(array(), $directorySeparator);
     }
@@ -34,7 +37,10 @@ class Path
      * 
      * @return array
      */
-    private static function _parsePath(string $stringPath, string $directorySeparator = DIRECTORY_SEPARATOR): array
+    private static function _parsePath(
+            string $stringPath,
+            string $directorySeparator = DIRECTORY_SEPARATOR
+    ): array
     {
         $tmp = array();
         foreach (explode($directorySeparator, str_replace("/", $directorySeparator, str_replace("\\", $directorySeparator, $stringPath))) as $name) {
@@ -64,7 +70,10 @@ class Path
      * 
      * @return Path
      */
-    public static function getFromString(string $stringPath, string $directorySeparator = DIRECTORY_SEPARATOR): Path
+    public static function getFromString(
+            string $stringPath,
+            string $directorySeparator = DIRECTORY_SEPARATOR
+    ): Path
     {
         return new Path(self::_parsePath($stringPath, $directorySeparator), $directorySeparator);
     }
@@ -72,7 +81,10 @@ class Path
     private $directorySeparator;
     protected $pathElements;
 
-    public function __construct(array $pathElements = array(), string $directorySeparator = DIRECTORY_SEPARATOR)
+    public function __construct(
+            array $pathElements = array(),
+            string $directorySeparator = DIRECTORY_SEPARATOR
+    )
     {
         $this->directorySeparator = $directorySeparator;
         $this->pathElements = $pathElements;
