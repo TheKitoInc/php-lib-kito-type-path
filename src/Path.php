@@ -14,11 +14,26 @@ namespace Kito\Type;
 class Path
 {
 
+    /**
+     * Return empty Path object
+     * 
+     * @param string $directorySeparator
+     * 
+     * @return Path
+     */
     public static function getRoot(string $directorySeparator = DIRECTORY_SEPARATOR): Path
     {
         return new Path(array(), $directorySeparator);
     }
 
+    /**
+     * Parse path string clean and create array of components
+     * 
+     * @param string $stringPath
+     * @param string $directorySeparator
+     * 
+     * @return array
+     */
     private static function _parsePath(string $stringPath, string $directorySeparator = DIRECTORY_SEPARATOR): array
     {
         $tmp = array();
@@ -41,6 +56,14 @@ class Path
         return $tmp;
     }
 
+    /**
+     * Create Path object from string
+     * 
+     * @param string $stringPath
+     * @param string $directorySeparator
+     * 
+     * @return Path
+     */
     public static function getFromString(string $stringPath, string $directorySeparator = DIRECTORY_SEPARATOR): Path
     {
         return new Path(self::_parsePath($stringPath, $directorySeparator), $directorySeparator);
@@ -188,7 +211,7 @@ class Path
     /**
      * Get path element
      *     
-     * @param  int $index
+     * @param int $index
      * 
      * @return string
      */
@@ -200,7 +223,7 @@ class Path
     /**
      * Set hash path string
      *     
-     * @param  string $hashFunction
+     * @param string $hashFunction
      * 
      * @return string
      */
