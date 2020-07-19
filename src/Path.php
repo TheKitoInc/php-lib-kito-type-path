@@ -23,7 +23,7 @@ class Path
      * @return Path
      */
     public static function getRoot(
-            string $directorySeparator = DIRECTORY_SEPARATOR
+        string $directorySeparator = DIRECTORY_SEPARATOR
     ): Path
     {
         return new Path(array(), $directorySeparator);
@@ -38,8 +38,8 @@ class Path
      * @return array
      */
     private static function _parsePath(
-            string $stringPath,
-            string $directorySeparator = DIRECTORY_SEPARATOR
+        string $stringPath,
+        string $directorySeparator = DIRECTORY_SEPARATOR
     ): array
     {
         $tmp = array();
@@ -71,8 +71,8 @@ class Path
      * @return Path
      */
     public static function getFromString(
-            string $stringPath,
-            string $directorySeparator = DIRECTORY_SEPARATOR
+        string $stringPath,
+        string $directorySeparator = DIRECTORY_SEPARATOR
     ): Path
     {
         return new Path(self::_parsePath($stringPath, $directorySeparator), $directorySeparator);
