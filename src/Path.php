@@ -3,7 +3,7 @@
  * Path
  * Path string parser and handler
  * php version 7.1
- 
+
  * @category Strings
  * @package Kito 
  * @author TheKito <TheKito@blktech.com>
@@ -11,10 +11,6 @@
  */
 namespace Kito\Type;
 
-/**
- *
- * @author TheKito <blankitoracing@gmail.com>
- */
 class Path
 {
 
