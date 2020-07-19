@@ -1,0 +1,30 @@
+language: php
+
+php:  
+  - 7.2
+  - 7.3
+  - 7.4
+  - nightly
+
+script: phpunit
+  
+jobs:
+  allow_failures:
+    - php: nightly
+
+  include:
+    - stage: PHPCS
+      php: 7.2
+      script:
+        - export PHPCS_DIR=/tmp/phpcs
+        - export PHPCOMPAT_DIR=/tmp/PHPCompatibility
+        - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
+        - $PHPCS_DIR/bin/phpcs --config-set installed_paths $PHPCOMPAT_DIR
+        - phpenv rehash
+        - $PHPCS_DIR/bin/phpcs .
+
+    - stage: PHPSTAN      
+      script:
+        - export PHPSTAN_DIR=/tmp/PHPSTAN
+        - git clone -b master --depth 1 https://github.com/phpstan/phpstan.git $PHPSTAN_DIR        
+        - $PHPSTAN_DIR/phpstan analyse -c phpstan.neon 
