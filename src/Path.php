@@ -18,9 +18,10 @@ namespace Kito\Type;
 
 /**
  *
- * @author TheKito < blankitoracing@gmail.com >
+ * @author TheKito <blankitoracing@gmail.com>
  */
-class Path {
+class Path
+{
 
     public static function getRoot(string $directorySeparator = DIRECTORY_SEPARATOR): Path
     {
