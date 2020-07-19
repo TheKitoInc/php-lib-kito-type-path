@@ -92,6 +92,12 @@ class Path
         return end($this->pathElements);
     }
 
+    /**
+     * Set name from last path element know as filename
+     *
+     * @param string $name
+     * @return Path
+     */
     public function setName(string $name): Path
     {
         array_pop($this->pathElements);
@@ -107,7 +113,10 @@ class Path
      */
     public function getChild(string $name): Path
     {
-        return new Path(array_merge($this->pathElements, array($name)), $this->directorySeparator);
+        return new Path(
+                array_merge($this->pathElements, array($name)),
+                $this->directorySeparator
+        );
     }
 
     /**
@@ -133,9 +142,30 @@ class Path
         return implode($this->directorySeparator, $this->pathElements);
     }
 
+    /**
+     * return new path with current path combined to new sub path
+     *     
+     * @deprecated
+     * @param Path $subPath
+     * @return Path
+     */
     public function combine(Path $subPath): Path
     {
-        return new Path(array_merge($this->pathElements, $subPath->pathElements), $this->directorySeparator);
+        return $this->withPath($subPath);
+    }
+
+    /**
+     * return new path with current path combined to new sub path
+     *     
+     * @param Path $subPath
+     * @return Path
+     */
+    public function withPath(Path $subPath): Path
+    {
+        return new Path(
+                array_merge($this->pathElements, $subPath->pathElements),
+                $this->directorySeparator
+        );
     }
 
     /**
@@ -158,14 +188,26 @@ class Path
         return $this->pathElements;
     }
 
+    /**
+     * Get path element
+     *     
+     * @param  int $index
+     * @return string
+     */
     public function getElement(int $index): string
     {
         return isset($this->pathElements[$index]) ? $this->pathElements[$index] : null;
     }
 
-    public function getUID(): string
+    /**
+     * Set hash path string
+     *     
+     * @param  string $hashFunction
+     * @return string
+     */
+    public function getUID(string $hashFunction = 'sha1'): string
     {
-        return implode('#', $this->pathElements);
+        return hash($hashFunction, implode(chr(0), $this->pathElements));
     }
 
     /**
