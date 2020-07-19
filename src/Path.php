@@ -5,9 +5,9 @@
  * php version 7.1
 
  * @category Strings
- * @package Kito 
- * @author TheKito <TheKito@blktech.com>
- * @license @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @package  Kito
+ * @author   TheKito <TheKito@blktech.com>
+ * @license  @license http://opensource.org/licenses/gpl-license.php GNU GPL
  */
 namespace Kito\Type;
 
@@ -89,6 +89,7 @@ class Path
      * Set name from last path element know as filename
      *
      * @param string $name
+     * 
      * @return Path
      */
     public function setName(string $name): Path
@@ -101,7 +102,8 @@ class Path
     /**
      * Get new path object with child element     
      * 
-     * @param  string $name          
+     * @param  string $name       
+     *    
      * @return Path
      */
     public function getChild(string $name): Path
@@ -140,6 +142,7 @@ class Path
      *     
      * @deprecated
      * @param Path $subPath
+     * 
      * @return Path
      */
     public function combine(Path $subPath): Path
@@ -151,6 +154,7 @@ class Path
      * return new path with current path combined to new sub path
      *     
      * @param Path $subPath
+     * 
      * @return Path
      */
     public function withPath(Path $subPath): Path
@@ -185,6 +189,7 @@ class Path
      * Get path element
      *     
      * @param  int $index
+     * 
      * @return string
      */
     public function getElement(int $index): string
@@ -196,6 +201,7 @@ class Path
      * Set hash path string
      *     
      * @param  string $hashFunction
+     * 
      * @return string
      */
     public function getUID(string $hashFunction = 'sha1'): string
@@ -206,6 +212,8 @@ class Path
     /**
      * Set directory separator
      *     
+     * @param string $directorySeparator
+     * 
      * @return Path
      */
     public function setDirectorySeparator(string $directorySeparator): Path
