@@ -19,7 +19,7 @@ class Path
         return new Path(array(), $directorySeparator);
     }
 
-    private static function parsePath(string $stringPath, string $directorySeparator = DIRECTORY_SEPARATOR): array
+    private static function _parsePath(string $stringPath, string $directorySeparator = DIRECTORY_SEPARATOR): array
     {
         $tmp = array();
         foreach (explode($directorySeparator, str_replace("/", $directorySeparator, str_replace("\\", $directorySeparator, $stringPath))) as $name) {
@@ -43,7 +43,7 @@ class Path
 
     public static function getFromString(string $stringPath, string $directorySeparator = DIRECTORY_SEPARATOR): Path
     {
-        return new Path(self::parsePath($stringPath, $directorySeparator), $directorySeparator);
+        return new Path(self::_parsePath($stringPath, $directorySeparator), $directorySeparator);
     }
 
     private $directorySeparator;
