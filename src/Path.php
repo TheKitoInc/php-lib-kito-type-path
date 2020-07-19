@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * This program is free software; you can redistribute it and/or modify
@@ -13,7 +12,6 @@
  * GNU Lesser General Public License for more details.
  *
  */
-
 namespace Kito\Type;
 
 /**
