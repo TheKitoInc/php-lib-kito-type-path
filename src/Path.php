@@ -62,16 +62,31 @@ class Path
         $this->pathElements = $pathElements;
     }
 
+    /**
+     * Return if path it is empty
+     *     
+     * @return bool
+     */
     public function isRoot(): bool
     {
         return $this->getDeep() == 0;
     }
 
+    /**
+     * Get number of components of path
+     *     
+     * @return int
+     */
     public function getDeep(): int
     {
         return count($this->pathElements);
     }
 
+    /**
+     * Get name from last path element know as filename
+     *
+     * @return string
+     */
     public function getName(): string
     {
         return end($this->pathElements);
@@ -84,11 +99,22 @@ class Path
         return $this;
     }
 
+    /**
+     * Get new path object with child element     
+     * 
+     * @param  string $name          
+     * @return Path
+     */
     public function getChild(string $name): Path
     {
         return new Path(array_merge($this->pathElements, array($name)), $this->directorySeparator);
     }
 
+    /**
+     * Get parent path object
+     *     
+     * @return Path
+     */
     public function getParent(): ?Path
     {
         if ($this->isRoot()) {
@@ -97,6 +123,11 @@ class Path
         return new Path(array_slice($this->pathElements, 0, count($this->pathElements) - 1, true), $this->directorySeparator);
     }
 
+    /**
+     * return path as string using directory separator
+     *     
+     * @return string
+     */
     public function __toString(): string
     {
         return implode($this->directorySeparator, $this->pathElements);
@@ -107,11 +138,21 @@ class Path
         return new Path(array_merge($this->pathElements, $subPath->pathElements), $this->directorySeparator);
     }
 
+    /**
+     * get current directory separator
+     *     
+     * @return string
+     */
     public function getDirectorySeparator(): string
     {
         return $this->directorySeparator;
     }
 
+    /**
+     * get elements of path
+     *     
+     * @return array
+     */
     public function getElements(): array
     {
         return $this->pathElements;
@@ -127,6 +168,11 @@ class Path
         return implode('#', $this->pathElements);
     }
 
+    /**
+     * Set directory separator
+     *     
+     * @return Path
+     */
     public function setDirectorySeparator(string $directorySeparator): Path
     {
         $this->directorySeparator = $directorySeparator;
