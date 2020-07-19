@@ -2,12 +2,12 @@
 
 use PHPUnit\Framework\TestCase;
 
-class PathTest extends TestCase {
+class PathTest extends TestCase
+{
 
-    public function testTrueIsTrue() {
+    public function testTrueIsTrue()
+    {
         $this->assertSame(true, true);
     }
-    
-    
 
 }
