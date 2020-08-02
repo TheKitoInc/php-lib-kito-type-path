@@ -17,9 +17,9 @@ class Path
 
     /**
      * Return empty Path object
-     * 
+     *
      * @param string $directorySeparator
-     * 
+     *
      * @return Path
      */
     public static function getRoot(
@@ -30,10 +30,10 @@ class Path
 
     /**
      * Parse path string clean and create array of components
-     * 
+     *
      * @param string $stringPath
      * @param string $directorySeparator
-     * 
+     *
      * @return array
      */
     private static function _parsePath(
@@ -41,9 +41,14 @@ class Path
         string $directorySeparator = DIRECTORY_SEPARATOR
     ): array {
         $tmp = array();
-        foreach (explode($directorySeparator, 
-                        str_replace("/", $directorySeparator, 
-                                str_replace("\\", $directorySeparator, $stringPath))) as $name) {
+        foreach (explode(
+            $directorySeparator,
+            str_replace(
+                            "/",
+                            $directorySeparator,
+                            str_replace("\\", $directorySeparator, $stringPath)
+                        )
+        ) as $name) {
             if (empty($name)) {
                 continue;
             }
@@ -64,10 +69,10 @@ class Path
 
     /**
      * Create Path object from string
-     * 
+     *
      * @param string $stringPath
      * @param string $directorySeparator
-     * 
+     *
      * @return Path
      */
     public static function getFromString(
@@ -81,8 +86,8 @@ class Path
     protected $pathElements;
 
     public function __construct(
-            array $pathElements = array(),
-            string $directorySeparator = DIRECTORY_SEPARATOR
+        array $pathElements = array(),
+        string $directorySeparator = DIRECTORY_SEPARATOR
     ) {
         $this->directorySeparator = $directorySeparator;
         $this->pathElements = $pathElements;
@@ -90,7 +95,7 @@ class Path
 
     /**
      * Return if path it is empty
-     *     
+     *
      * @return bool
      */
     public function isRoot(): bool
@@ -100,7 +105,7 @@ class Path
 
     /**
      * Get number of components of path
-     *     
+     *
      * @return int
      */
     public function getDeep(): int
@@ -122,7 +127,7 @@ class Path
      * Set name from last path element know as filename
      *
      * @param string $name
-     * 
+     *
      * @return Path
      */
     public function setName(string $name): Path
@@ -133,23 +138,23 @@ class Path
     }
 
     /**
-     * Get new path object with child element     
-     * 
-     * @param  string $name       
-     *    
+     * Get new path object with child element
+     *
+     * @param  string $name
+     *
      * @return Path
      */
     public function getChild(string $name): Path
     {
         return new Path(
-                array_merge($this->pathElements, array($name)),
-                $this->directorySeparator
+            array_merge($this->pathElements, array($name)),
+            $this->directorySeparator
         );
     }
 
     /**
      * Get parent path object
-     *     
+     *
      * @return Path
      */
     public function getParent(): ?Path
@@ -162,7 +167,7 @@ class Path
 
     /**
      * return path as string using directory separator
-     *     
+     *
      * @return string
      */
     public function __toString(): string
@@ -172,10 +177,10 @@ class Path
 
     /**
      * return new path with current path combined to new sub path
-     *     
+     *
      * @deprecated
      * @param Path $subPath
-     * 
+     *
      * @return Path
      */
     public function combine(Path $subPath): Path
@@ -185,22 +190,22 @@ class Path
 
     /**
      * return new path with current path combined to new sub path
-     *     
+     *
      * @param Path $subPath
-     * 
+     *
      * @return Path
      */
     public function withPath(Path $subPath): Path
     {
         return new Path(
-                array_merge($this->pathElements, $subPath->pathElements),
-                $this->directorySeparator
+            array_merge($this->pathElements, $subPath->pathElements),
+            $this->directorySeparator
         );
     }
 
     /**
      * get current directory separator
-     *     
+     *
      * @return string
      */
     public function getDirectorySeparator(): string
@@ -210,7 +215,7 @@ class Path
 
     /**
      * get elements of path
-     *     
+     *
      * @return array
      */
     public function getElements(): array
@@ -220,9 +225,9 @@ class Path
 
     /**
      * Get path element
-     *     
+     *
      * @param int $index
-     * 
+     *
      * @return string
      */
     public function getElement(int $index): string
@@ -232,9 +237,9 @@ class Path
 
     /**
      * Set hash path string
-     *     
+     *
      * @param string $hashFunction
-     * 
+     *
      * @return string
      */
     public function getUID(string $hashFunction = 'sha1'): string
@@ -244,9 +249,9 @@ class Path
 
     /**
      * Set directory separator
-     *     
+     *
      * @param string $directorySeparator
-     * 
+     *
      * @return Path
      */
     public function setDirectorySeparator(string $directorySeparator): Path
@@ -254,5 +259,4 @@ class Path
         $this->directorySeparator = $directorySeparator;
         return $this;
     }
-
 }
