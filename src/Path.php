@@ -226,7 +226,7 @@ class Path
     /**
      * Get path element
      *
-     * @param int $index
+     * @param int $index path element position
      *
      * @return string
      */
@@ -238,7 +238,7 @@ class Path
     /**
      * Set hash path string
      *
-     * @param string $hashFunction
+     * @param string $hashFunction hash function name
      *
      * @return string
      */
@@ -250,7 +250,7 @@ class Path
     /**
      * Set directory separator
      *
-     * @param string $directorySeparator
+     * @param string $directorySeparator directory char separator
      *
      * @return Path
      */
