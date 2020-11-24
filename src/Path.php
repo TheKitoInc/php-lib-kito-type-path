@@ -1,7 +1,5 @@
 <?php
 /**
- * 
- * 
  * Path
  * Path string parser and handler
  * php version 7.1
@@ -16,10 +14,7 @@ namespace Kito;
 
 
 /**
- * 
- * 
- * Path Class
- * 
+ * Path Class 
  */
 class Path
 {
@@ -181,7 +176,7 @@ class Path
         if ($this->isRoot()) {
             return null;
         }
-        $parentArray = array_slice($this->pathElements, 0, count($this->pathElements) - 1, true);
+        $parentArray = array_slice($this->pathElements, 0, -1, true);
         return new Path(parentArray, $this->directorySeparator);
     }
 
