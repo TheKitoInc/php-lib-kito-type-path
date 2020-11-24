@@ -10,7 +10,7 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU GPL
  * @link     https://github.com/TheKito/type-path
  */
-namespace Kito\Type;
+namespace Kito;
 
 class Path
 {
@@ -18,7 +18,7 @@ class Path
     /**
      * Return empty Path object
      *
-     * @param string $directorySeparator
+     * @param string $directorySeparator directory char separator
      *
      * @return Path
      */
@@ -31,8 +31,8 @@ class Path
     /**
      * Parse path string clean and create array of components
      *
-     * @param string $stringPath
-     * @param string $directorySeparator
+     * @param string $stringPath path string 
+     * @param string $directorySeparator directory char separator
      *
      * @return array
      */
@@ -44,10 +44,10 @@ class Path
         foreach (explode(
             $directorySeparator,
             str_replace(
-                            "/",
-                            $directorySeparator,
-                            str_replace("\\", $directorySeparator, $stringPath)
-                        )
+						"/",
+						$directorySeparator,
+						str_replace("\\", $directorySeparator, $stringPath)
+					)
         ) as $name) {
             if (empty($name)) {
                 continue;
@@ -70,8 +70,8 @@ class Path
     /**
      * Create Path object from string
      *
-     * @param string $stringPath
-     * @param string $directorySeparator
+     * @param string $stringPath path string
+     * @param string $directorySeparator directory char separator
      *
      * @return Path
      */
@@ -126,7 +126,7 @@ class Path
     /**
      * Set name from last path element know as filename
      *
-     * @param string $name
+     * @param string $name name for last path element
      *
      * @return Path
      */
