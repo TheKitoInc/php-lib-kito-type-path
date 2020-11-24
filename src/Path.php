@@ -126,7 +126,7 @@ class Path
     /**
      * Set name from last path element know as filename
      *
-     * @param string $name name for last path element
+     * @param string $name element name
      *
      * @return Path
      */
@@ -140,7 +140,7 @@ class Path
     /**
      * Get new path object with child element
      *
-     * @param string $name
+     * @param string $name element name
      *
      * @return Path
      */
@@ -179,7 +179,7 @@ class Path
      * return new path with current path combined to new sub path
      *
      * @deprecated
-     * @param      Path $subPath
+     * @param      Path $subPath path to be merged
      *
      * @return Path
      */
@@ -191,7 +191,7 @@ class Path
     /**
      * return new path with current path combined to new sub path
      *
-     * @param Path $subPath
+     * @param Path $subPath path to be merged
      *
      * @return Path
      */
