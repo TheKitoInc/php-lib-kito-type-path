@@ -1,8 +1,6 @@
 <?php
-
-namespace Kito;
-
 /**
+ * 
  * 
  * Path
  * Path string parser and handler
@@ -14,7 +12,15 @@ namespace Kito;
  * @license  http://opensource.org/licenses/gpl-license.php GNU GPL
  * @link     https://github.com/TheKito/type-path
  */
- 
+namespace Kito;
+
+
+/**
+ * 
+ * 
+ * Path Class
+ * 
+ */
 class Path
 {
 
@@ -247,7 +253,7 @@ class Path
      */
     public function getElement(int $index): string
     {
-        if(isset($this->pathElements[$index])) {
+        if (isset($this->pathElements[$index])) {
             return $this->pathElements[$index];
         }
        
