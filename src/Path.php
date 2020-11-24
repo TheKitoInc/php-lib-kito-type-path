@@ -85,6 +85,16 @@ class Path
     private $directorySeparator;
     protected $pathElements;
 
+    /**
+     * 
+     * Class construct
+     * 
+     *
+     * @param  array  $pathElements       path components 
+     * @param  string $directorySeparator directory char separator
+     *                                    
+     * @return Path
+     */
     public function __construct(
         array $pathElements = array(),
         string $directorySeparator = DIRECTORY_SEPARATOR
@@ -162,11 +172,12 @@ class Path
         if ($this->isRoot()) {
             return null;
         }
-        return new Path(array_slice($this->pathElements, 0, count($this->pathElements) - 1, true), $this->directorySeparator);
+        $parentArray = array_slice($this->pathElements, 0, count($this->pathElements) - 1, true);
+        return new Path(parentArray, $this->directorySeparator);
     }
 
     /**
-     * return path as string using directory separator
+     * Return path as string using directory separator
      *
      * @return string
      */
@@ -176,10 +187,11 @@ class Path
     }
 
     /**
-     * return new path with current path combined to new sub path
+     * Return new path with current path combined to new sub path
      *
-     * @deprecated
-     * @param      Path $subPath path to be merged
+     * @deprecated replaced by withPath 
+     *
+     * @param Path $subPath path to be merged
      *
      * @return Path
      */
@@ -189,7 +201,7 @@ class Path
     }
 
     /**
-     * return new path with current path combined to new sub path
+     * Return new path with current path combined to new sub path
      *
      * @param Path $subPath path to be merged
      *
@@ -204,7 +216,7 @@ class Path
     }
 
     /**
-     * get current directory separator
+     * Get current directory separator
      *
      * @return string
      */
@@ -214,7 +226,7 @@ class Path
     }
 
     /**
-     * get elements of path
+     * Get elements of path
      *
      * @return array
      */
@@ -232,7 +244,7 @@ class Path
      */
     public function getElement(int $index): string
     {
-        return isset($this->pathElements[$index]) ? $this->pathElements[$index] : null;
+        return isset($this->pathElements[$index]) ? $this->pathElements[$index];
     }
 
     /**
