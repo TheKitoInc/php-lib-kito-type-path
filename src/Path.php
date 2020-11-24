@@ -247,7 +247,10 @@ class Path
      */
     public function getElement(int $index): string
     {
-        return isset($this->pathElements[$index]) ? $this->pathElements[$index];
+        if(isset($this->pathElements[$index])) {
+            return $this->pathElements[$index];
+        }
+       
     }
 
     /**
