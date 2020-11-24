@@ -1,17 +1,20 @@
 <?php
+
+namespace Kito;
+
 /**
+ * 
  * Path
  * Path string parser and handler
  * php version 7.1
-
+ *
  * @category Strings
  * @package  Kito
  * @author   TheKito <TheKito@blktech.com>
  * @license  http://opensource.org/licenses/gpl-license.php GNU GPL
  * @link     https://github.com/TheKito/type-path
  */
-namespace Kito;
-
+ 
 class Path
 {
 
@@ -79,7 +82,8 @@ class Path
         string $stringPath,
         string $directorySeparator = DIRECTORY_SEPARATOR
     ): Path {
-        return new Path(self::_parsePath($stringPath, $directorySeparator), $directorySeparator);
+        $pathArray = self::_parsePath($stringPath, $directorySeparator);
+        return new Path($pathArray, $directorySeparator);
     }
 
     private $directorySeparator;
@@ -88,7 +92,6 @@ class Path
     /**
      * 
      * Class construct
-     * 
      *
      * @param  array  $pathElements       path components 
      * @param  string $directorySeparator directory char separator
