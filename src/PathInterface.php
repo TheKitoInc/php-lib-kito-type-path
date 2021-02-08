@@ -19,6 +19,10 @@ namespace Kito;
 interface PathInterface
 {
 
+    public static function getRoot(
+            string $directorySeparator = DIRECTORY_SEPARATOR
+    ): PathInterface;
+
     /**
      * Get current directory separator
      *
@@ -50,6 +54,13 @@ interface PathInterface
      * @return string
      */
     public function getElement(int $index): string;
+
+    /**
+     * Get number of components of path
+     *
+     * @return int
+     */
+    public function getDeep(): int;
 
     /**
      * Return if path it is empty
