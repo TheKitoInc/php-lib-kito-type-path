@@ -144,9 +144,9 @@ class Path implements PathInterface
      *
      * @param string $name element name
      *
-     * @return Path
+     * @return PathInterface
      */
-    public function setName(string $name): Path
+    public function setName(string $name): PathInterface
     {
         array_pop($this->pathElements);
         $this->pathElements[] = $name;
@@ -158,9 +158,9 @@ class Path implements PathInterface
      *
      * @param string $name element name
      *
-     * @return Path
+     * @return PathInterface
      */
-    public function getChild(string $name): Path
+    public function getChild(string $name): PathInterface
     {
         return new Path(
             array_merge($this->pathElements, array($name)),
@@ -171,9 +171,9 @@ class Path implements PathInterface
     /**
      * Get parent path object
      *
-     * @return Path
+     * @return PathInterface
      */
-    public function getParent(): ?Path
+    public function getParent(): ?PathInterface
     {
         if ($this->isRoot()) {
             return null;
@@ -197,11 +197,11 @@ class Path implements PathInterface
      *
      * @deprecated replaced by withPath
      *
-     * @param Path $subPath path to be merged
+     * @param PathInterface $subPath path to be merged
      *
-     * @return Path
+     * @return PathInterface
      */
-    public function combine(Path $subPath): Path
+    public function combine(PathInterface $subPath): PathInterface
     {
         return $this->withPath($subPath);
     }
@@ -211,9 +211,9 @@ class Path implements PathInterface
      *
      * @param Path $subPath path to be merged
      *
-     * @return Path
+     * @return PathInterface
      */
-    public function withPath(PathInterface $subPath): Path
+    public function withPath(PathInterface $subPath): PathInterface
     {
         return new Path(
             array_merge($this->pathElements, $subPath->pathElements),
@@ -272,9 +272,9 @@ class Path implements PathInterface
      *
      * @param string $directorySeparator directory char separator
      *
-     * @return Path
+     * @return PathInterface
      */
-    public function setDirectorySeparator(string $directorySeparator): Path
+    public function setDirectorySeparator(string $directorySeparator): PathInterface
     {
         $this->directorySeparator = $directorySeparator;
         return $this;
