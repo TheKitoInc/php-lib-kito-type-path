@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Path
  * Path string parser and handler
@@ -48,10 +50,10 @@ class Path implements PathInterface
         foreach (explode(
             $directorySeparator,
             str_replace(
-                "/",
-                $directorySeparator,
-                str_replace("\\", $directorySeparator, $stringPath)
-            )
+                    "/",
+                    $directorySeparator,
+                    str_replace("\\", $directorySeparator, $stringPath)
+                )
         ) as $name) {
             if (empty($name)) {
                 continue;
@@ -211,7 +213,7 @@ class Path implements PathInterface
      *
      * @return Path
      */
-    public function withPath(Path $subPath): Path
+    public function withPath(PathInterface $subPath): Path
     {
         return new Path(
             array_merge($this->pathElements, $subPath->pathElements),
