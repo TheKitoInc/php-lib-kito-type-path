@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @license  http://opensource.org/licenses/gpl-license.php GNU GPL
  * @link     https://github.com/TheKito/type-path
  */
-namespace Kito;
+namespace Kito\Path;
 
 /**
  *
