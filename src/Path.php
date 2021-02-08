@@ -50,10 +50,10 @@ class Path implements PathInterface
         foreach (explode(
             $directorySeparator,
             str_replace(
-                    "/",
-                    $directorySeparator,
-                    str_replace("\\", $directorySeparator, $stringPath)
-                )
+                "/",
+                $directorySeparator,
+                str_replace("\\", $directorySeparator, $stringPath)
+            )
         ) as $name) {
             if (empty($name)) {
                 continue;
