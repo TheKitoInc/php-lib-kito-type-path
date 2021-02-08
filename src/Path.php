@@ -30,7 +30,7 @@ class Path implements PathInterface
      */
     public static function getRoot(
         string $directorySeparator = DIRECTORY_SEPARATOR
-    ): PathInterface {
+    ): Path {
         return new Path(array(), $directorySeparator);
     }
 
