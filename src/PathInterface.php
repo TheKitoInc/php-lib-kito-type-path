@@ -13,14 +13,13 @@
 namespace Kito;
 
 /**
- * 
- * Path Interface 
+ *
+ * Path Interface
  */
 interface PathInterface
 {
-
     public static function getRoot(
-            string $directorySeparator = DIRECTORY_SEPARATOR
+        string $directorySeparator = DIRECTORY_SEPARATOR
     ): PathInterface;
 
     /**

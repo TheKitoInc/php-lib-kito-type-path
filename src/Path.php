@@ -12,10 +12,9 @@
  */
 namespace Kito;
 
-
 /**
- * 
- * Path Class 
+ *
+ * Path Class
  */
 class Path implements PathInterface
 {
@@ -36,7 +35,7 @@ class Path implements PathInterface
     /**
      * Parse path string clean and create array of components
      *
-     * @param string $stringPath         path string 
+     * @param string $stringPath         path string
      * @param string $directorySeparator directory char separator
      *
      * @return array
@@ -92,12 +91,12 @@ class Path implements PathInterface
     protected $pathElements;
 
     /**
-     * 
+     *
      * Class construct
      *
-     * @param  array  $pathElements       path components 
+     * @param  array  $pathElements       path components
      * @param  string $directorySeparator directory char separator
-     *                                    
+     *
      * @return Path
      */
     public function __construct(
@@ -194,7 +193,7 @@ class Path implements PathInterface
     /**
      * Return new path with current path combined to new sub path
      *
-     * @deprecated replaced by withPath 
+     * @deprecated replaced by withPath
      *
      * @param Path $subPath path to be merged
      *
@@ -252,7 +251,6 @@ class Path implements PathInterface
         if (isset($this->pathElements[$index])) {
             return $this->pathElements[$index];
         }
-       
     }
 
     /**
