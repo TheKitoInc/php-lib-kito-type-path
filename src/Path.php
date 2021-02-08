@@ -17,7 +17,7 @@ namespace Kito;
  * 
  * Path Class 
  */
-class Path
+class Path implements PathInterface
 {
 
     /**
