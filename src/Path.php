@@ -1,28 +1,29 @@
 <?php
+
 declare(strict_types=1);
 
 /**
  * Path
  * Path string parser and handler
- * php version 7.1
+ * php version 7.1.
  *
  * @category Strings
- * @package  Kito
+ *
  * @author   TheKito <TheKito@blktech.com>
  * @license  http://opensource.org/licenses/gpl-license.php GNU GPL
+ *
  * @link     https://github.com/TheKito/type-path
  */
+
 namespace Kito\Path;
 
 /**
- *
- * Path Class
+ * Path Class.
  */
 class Path implements PathInterface
 {
-
     /**
-     * Return empty Path object
+     * Return empty Path object.
      *
      * @param string $directorySeparator directory char separator
      *
@@ -31,11 +32,11 @@ class Path implements PathInterface
     public static function getRoot(
         string $directorySeparator = DIRECTORY_SEPARATOR
     ): Path {
-        return new Path(array(), $directorySeparator);
+        return new Path([], $directorySeparator);
     }
 
     /**
-     * Parse path string clean and create array of components
+     * Parse path string clean and create array of components.
      *
      * @param string $stringPath         path string
      * @param string $directorySeparator directory char separator
@@ -46,13 +47,13 @@ class Path implements PathInterface
         string $stringPath,
         string $directorySeparator = DIRECTORY_SEPARATOR
     ): array {
-        $tmp = array();
+        $tmp = [];
         foreach (explode(
             $directorySeparator,
             str_replace(
-                "/",
+                '/',
                 $directorySeparator,
-                str_replace("\\", $directorySeparator, $stringPath)
+                str_replace('\\', $directorySeparator, $stringPath)
             )
         ) as $name) {
             if (empty($name)) {
@@ -70,11 +71,12 @@ class Path implements PathInterface
 
             $tmp[] = $name;
         }
+
         return $tmp;
     }
 
     /**
-     * Create Path object from string
+     * Create Path object from string.
      *
      * @param string $stringPath         path string
      * @param string $directorySeparator directory char separator
@@ -86,6 +88,7 @@ class Path implements PathInterface
         string $directorySeparator = DIRECTORY_SEPARATOR
     ): Path {
         $pathArray = self::_parsePath($stringPath, $directorySeparator);
+
         return new Path($pathArray, $directorySeparator);
     }
 
@@ -93,16 +96,15 @@ class Path implements PathInterface
     protected $pathElements;
 
     /**
+     * Class construct.
      *
-     * Class construct
-     *
-     * @param  array  $pathElements       path components
-     * @param  string $directorySeparator directory char separator
+     * @param array  $pathElements       path components
+     * @param string $directorySeparator directory char separator
      *
      * @return Path
      */
     public function __construct(
-        array $pathElements = array(),
+        array $pathElements = [],
         string $directorySeparator = DIRECTORY_SEPARATOR
     ) {
         $this->directorySeparator = $directorySeparator;
@@ -110,7 +112,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Return if path it is empty
+     * Return if path it is empty.
      *
      * @return bool
      */
@@ -120,7 +122,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Get number of components of path
+     * Get number of components of path.
      *
      * @return int
      */
@@ -130,7 +132,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Get name from last path element know as filename
+     * Get name from last path element know as filename.
      *
      * @return string
      */
@@ -140,7 +142,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Set name from last path element know as filename
+     * Set name from last path element know as filename.
      *
      * @param string $name element name
      *
@@ -150,11 +152,12 @@ class Path implements PathInterface
     {
         array_pop($this->pathElements);
         $this->pathElements[] = $name;
+
         return $this;
     }
 
     /**
-     * Get new path object with child element
+     * Get new path object with child element.
      *
      * @param string $name element name
      *
@@ -163,13 +166,13 @@ class Path implements PathInterface
     public function getChild(string $name): PathInterface
     {
         return new Path(
-            array_merge($this->pathElements, array($name)),
+            array_merge($this->pathElements, [$name]),
             $this->directorySeparator
         );
     }
 
     /**
-     * Get parent path object
+     * Get parent path object.
      *
      * @return PathInterface
      */
@@ -179,11 +182,12 @@ class Path implements PathInterface
             return null;
         }
         $parentArray = array_slice($this->pathElements, 0, -1, true);
+
         return new Path(parentArray, $this->directorySeparator);
     }
 
     /**
-     * Return path as string using directory separator
+     * Return path as string using directory separator.
      *
      * @return string
      */
@@ -193,7 +197,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Return new path with current path combined to new sub path
+     * Return new path with current path combined to new sub path.
      *
      * @deprecated replaced by withPath
      *
@@ -207,7 +211,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Return new path with current path combined to new sub path
+     * Return new path with current path combined to new sub path.
      *
      * @param Path $subPath path to be merged
      *
@@ -222,7 +226,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Get current directory separator
+     * Get current directory separator.
      *
      * @return string
      */
@@ -232,7 +236,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Get elements of path
+     * Get elements of path.
      *
      * @return array
      */
@@ -242,7 +246,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Get path element
+     * Get path element.
      *
      * @param int $index path element position
      *
@@ -256,7 +260,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Set hash path string
+     * Set hash path string.
      *
      * @param string $hashFunction hash function name
      *
@@ -268,7 +272,7 @@ class Path implements PathInterface
     }
 
     /**
-     * Set directory separator
+     * Set directory separator.
      *
      * @param string $directorySeparator directory char separator
      *
@@ -277,6 +281,7 @@ class Path implements PathInterface
     public function setDirectorySeparator(string $directorySeparator): PathInterface
     {
         $this->directorySeparator = $directorySeparator;
+
         return $this;
     }
 }
