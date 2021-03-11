@@ -1,34 +1,35 @@
 <?php
+
 declare(strict_types=1);
 /**
  * Path
  * Path string parser and handler
- * php version 7.1
+ * php version 7.1.
  *
  * @category Strings
- * @package  Kito
+ *
  * @author   TheKito <TheKito@blktech.com>
  * @license  http://opensource.org/licenses/gpl-license.php GNU GPL
+ *
  * @link     https://github.com/TheKito/type-path
  */
+
 namespace Kito\Path;
 
 /**
- *
- * Path Interface
+ * Path Interface.
  */
 interface PathInterface
 {
-   
     /**
-     * Get current directory separator
+     * Get current directory separator.
      *
      * @return string
      */
     public function getDirectorySeparator(): string;
 
     /**
-     * Set directory separator
+     * Set directory separator.
      *
      * @param string $directorySeparator directory char separator
      *
@@ -37,14 +38,14 @@ interface PathInterface
     public function setDirectorySeparator(string $directorySeparator): PathInterface;
 
     /**
-     * Get elements of path
+     * Get elements of path.
      *
      * @return array
      */
     public function getElements(): array;
 
     /**
-     * Get path element
+     * Get path element.
      *
      * @param int $index path element position
      *
@@ -53,28 +54,28 @@ interface PathInterface
     public function getElement(int $index): string;
 
     /**
-     * Get number of components of path
+     * Get number of components of path.
      *
      * @return int
      */
     public function getDeep(): int;
 
     /**
-     * Return if path it is empty
+     * Return if path it is empty.
      *
      * @return bool
      */
     public function isRoot(): bool;
 
     /**
-     * Get name from last path element know as filename
+     * Get name from last path element know as filename.
      *
      * @return string
      */
     public function getName(): string;
 
     /**
-     * Set name from last path element know as filename
+     * Set name from last path element know as filename.
      *
      * @param string $name element name
      *
@@ -83,7 +84,7 @@ interface PathInterface
     public function setName(string $name): PathInterface;
 
     /**
-     * Get new path object with child element
+     * Get new path object with child element.
      *
      * @param string $name element name
      *
@@ -92,21 +93,21 @@ interface PathInterface
     public function getChild(string $name): PathInterface;
 
     /**
-     * Get parent path object
+     * Get parent path object.
      *
      * @return Path
      */
     public function getParent(): ?PathInterface;
 
     /**
-     * Return path as string using directory separator
+     * Return path as string using directory separator.
      *
      * @return string
      */
     public function __toString(): string;
 
     /**
-     * Return new path with current path combined to new sub path
+     * Return new path with current path combined to new sub path.
      *
      * @param Path $subPath path to be merged
      *
