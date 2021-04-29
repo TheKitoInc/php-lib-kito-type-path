@@ -48,30 +48,34 @@ class Path implements PathInterface
         string $directorySeparator = DIRECTORY_SEPARATOR
     ): array {
         $tmp = [];
-        foreach (explode(
+
+        $items  =explode(
             $directorySeparator,
             str_replace(
                 '/',
                 $directorySeparator,
                 str_replace('\\', $directorySeparator, $stringPath)
             )
-        ) as $name) {
-            if (empty($name)) {
-                continue;
-            }
+        );
 
-            if ($name == '.') {
-                continue;
-            }
+        if (is_array($items)) {
+            foreach ($items as $name) {
+                if ($name==='') {
+                    continue;
+                }
 
-            if ($name == '..' && count($tmp) > 0) {
-                array_pop($tmp);
-                continue;
-            }
+                if ($name == '.') {
+                    continue;
+                }
 
-            $tmp[] = $name;
+                if ($name == '..' && count($tmp) > 0) {
+                    array_pop($tmp);
+                    continue;
+                }
+
+                $tmp[] = $name;
+            }
         }
-
         return $tmp;
     }
 
@@ -92,8 +96,8 @@ class Path implements PathInterface
         return new Path($pathArray, $directorySeparator);
     }
 
-    private $directorySeparator;
-    protected $pathElements;
+    private string $directorySeparator;
+    protected array $pathElements;
 
     /**
      * Class construct.
@@ -183,7 +187,7 @@ class Path implements PathInterface
         }
         $parentArray = array_slice($this->pathElements, 0, -1, true);
 
-        return new Path(parentArray, $this->directorySeparator);
+        return new Path($parentArray, $this->directorySeparator);
     }
 
     /**
@@ -213,14 +217,14 @@ class Path implements PathInterface
     /**
      * Return new path with current path combined to new sub path.
      *
-     * @param Path $subPath path to be merged
+     * @param PathInterface $subPath path to be merged
      *
      * @return PathInterface
      */
     public function withPath(PathInterface $subPath): PathInterface
     {
         return new Path(
-            array_merge($this->pathElements, $subPath->pathElements),
+            array_merge($this->getElements(), $subPath->getElements()),
             $this->directorySeparator
         );
     }
@@ -252,11 +256,13 @@ class Path implements PathInterface
      *
      * @return string
      */
-    public function getElement(int $index): string
+    public function getElement(int $index): ?string
     {
         if (isset($this->pathElements[$index])) {
             return $this->pathElements[$index];
         }
+
+        return null;
     }
 
     /**
