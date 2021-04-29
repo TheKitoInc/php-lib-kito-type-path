@@ -51,7 +51,7 @@ interface PathInterface
      *
      * @return string
      */
-    public function getElement(int $index): string;
+    public function getElement(int $index): ?string;
 
     /**
      * Get number of components of path.
