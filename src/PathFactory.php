@@ -20,7 +20,7 @@ namespace Kito\Path;
 /**
  * Path Class.
  */
-class PathFactory
+class PathFactory implements PathFactoryInterface
 {
     /**
      * Create Path object from path string and directory separator char
