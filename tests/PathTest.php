@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
+use Kito\Path\Path;
 use PHPUnit\Framework\TestCase;
 
 class PathTest extends TestCase
 {
-    public function testTrueIsTrue()
+    public function testPathClassConstructor()
     {
-        $this->assertSame(true, true);
+        $object = new Path();
+        $this->assertInstanceOf(Path::class, $object);
     }
 }
