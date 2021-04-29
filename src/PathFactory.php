@@ -23,14 +23,14 @@ namespace Kito\Path;
 class PathFactory implements PathFactoryInterface
 {
     /**
-     * Create Path object from path string and directory separator char
+     * Create Path object from path string and directory separator char.
      *
      * @param string $stringPath         path string
      * @param string $directorySeparator directory char separator
      *
      * @return PathInterface
      */
-    public static function createPathFromString(string $stringPath = DIRECTORY_SEPARATOR, string $directorySeparator = DIRECTORY_SEPARATOR) : PathInterface
+    public static function createPathFromString(string $stringPath = DIRECTORY_SEPARATOR, string $directorySeparator = DIRECTORY_SEPARATOR): PathInterface
     {
         $items = explode(
             $directorySeparator,
@@ -45,7 +45,7 @@ class PathFactory implements PathFactoryInterface
 
         if (is_array($items)) {
             foreach ($items as $name) {
-                if ($name==='') {
+                if ($name === '') {
                     continue;
                 }
 
@@ -66,7 +66,7 @@ class PathFactory implements PathFactoryInterface
     }
 
     /**
-     * Create root Path object with separator char
+     * Create root Path object with separator char.
      *
      * @param string $directorySeparator directory char separator
      *
@@ -74,6 +74,6 @@ class PathFactory implements PathFactoryInterface
      */
     public static function createRootPath(string $directorySeparator = DIRECTORY_SEPARATOR): PathInterface
     {
-        return new Path(array(), $directorySeparator);
+        return new Path([], $directorySeparator);
     }
 }
