@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class PathTest extends TestCase
 {
-    public function testPathClassConstructor()
+    public function testPathClassConstructor(): void
     {
         $object = new Path();
         $this->assertInstanceOf(Path::class, $object);
