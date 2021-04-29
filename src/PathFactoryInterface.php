@@ -23,17 +23,17 @@ namespace Kito\Path;
 interface PathFactoryInterface
 {
     /**
-     * Create Path object from path string and directory separator char
+     * Create Path object from path string and directory separator char.
      *
      * @param string $stringPath         path string
      * @param string $directorySeparator directory char separator
      *
      * @return PathInterface
      */
-    public static function createPathFromString(string $stringPath = DIRECTORY_SEPARATOR, string $directorySeparator = DIRECTORY_SEPARATOR) : PathInterface;
+    public static function createPathFromString(string $stringPath = DIRECTORY_SEPARATOR, string $directorySeparator = DIRECTORY_SEPARATOR): PathInterface;
 
     /**
-     * Create root Path object with separator char
+     * Create root Path object with separator char.
      *
      * @param string $directorySeparator directory char separator
      *
