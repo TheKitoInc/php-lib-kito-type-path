@@ -8,22 +8,22 @@ use PHPUnit\Framework\TestCase;
 
 class PathFactoryTest extends TestCase
 {
-    public function testFactoryRootPath():void
+    public function testFactoryRootPath(): void
     {
         $this->assertInstanceOf(Path::class, PathFactory::createRootPath());
     }
 
-    public function testFactoryRootPathWithCustomPathSeparator():void
+    public function testFactoryRootPathWithCustomPathSeparator(): void
     {
         $this->assertInstanceOf(Path::class, PathFactory::createRootPath('-'));
     }
 
-    public function testFactoryExamplePath():void
+    public function testFactoryExamplePath(): void
     {
         $this->assertInstanceOf(Path::class, PathFactory::createPathFromString('mypath'));
     }
 
-    public function testFactoryExamplePathWithCustomPathSeparator():void
+    public function testFactoryExamplePathWithCustomPathSeparator(): void
     {
         $this->assertInstanceOf(Path::class, PathFactory::createPathFromString('mypath', '-'));
     }
