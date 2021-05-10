@@ -21,5 +21,7 @@
         "psr-4": {
             "Kito\\Path\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
