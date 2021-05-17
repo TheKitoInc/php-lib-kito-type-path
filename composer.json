@@ -16,7 +16,9 @@
             "email": "11139894+TheKito@users.noreply.github.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=7.4"
+    },
     "autoload": {
         "psr-4": {
             "Kito\\Path\\": "src/"
