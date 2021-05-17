@@ -53,7 +53,7 @@ class PathFactory implements PathFactoryInterface
                     continue;
                 }
 
-                if ($name == '..' && count($tmp) > 0) {
+                if ($name == '..') {
                     array_pop($tmp);
                     continue;
                 }
