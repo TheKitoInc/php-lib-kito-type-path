@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Path
  * Path string parser and handler
- * php version 7.1.
+ * php version 7.4.
  *
  * @category Strings
  *
