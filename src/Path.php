@@ -156,6 +156,21 @@ class Path implements PathInterface
     }
 
     /**
+     * Return new path with prefix path combined to current path.
+     *
+     * @param PathInterface $path path to be merged before current path
+     *
+     * @return PathInterface
+     */
+    public function withPrefixPath(PathInterface $path): PathInterface
+    {
+        return new Path(
+            array_merge($path->getElements(),$this->getElements()),
+            $this->directorySeparator
+        );
+    }
+
+    /**
      * Get current directory separator.
      *
      * @return string
