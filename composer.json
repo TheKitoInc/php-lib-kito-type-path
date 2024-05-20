@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kito\\Path\\": "src/"
+            "Kito\\Type\\Path\\": "src/"
         }
     },
     "minimum-stability": "dev",
