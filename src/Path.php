@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @link     https://github.com/TheKito/type-path
  */
 
-namespace Kito\Path;
+namespace Kito\Type\Path;
 
 /**
  * Path Class.
