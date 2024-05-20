@@ -170,6 +170,7 @@ class Path implements PathInterface
         );
     }
 
+
     /**
      * Return new path with current path combined to new path.
      *
@@ -185,6 +186,47 @@ class Path implements PathInterface
         );
     }
 
+    /**
+     * Return new path prefix with new element from current path.
+     *
+     * @param string $element element to be merged before current path
+     *
+     * @return PathInterface
+     */
+    public function withPrefixElement(string $element): PathInterface
+    {
+        if (in_array($element,array('.','..','','/',"\\",$this->directorySeparator)))
+        {
+            return $this;
+        }
+
+        return new Path(
+            array_merge(array($element),$this->getElements()),
+            $this->directorySeparator
+        );
+    }
+
+
+    /**
+     * Return new path with current path combined to new element.
+     *
+     * @param string $element element to be merged after current path
+     *
+     * @return PathInterface
+     */
+    public function withSuffixElement(string $element): PathInterface
+    {
+
+        if (in_array($element,array('.','..','','/',"\\",$this->directorySeparator)))
+        {
+            return $this;
+        }
+
+        return new Path(
+            array_merge($this->getElements(),array($element)),
+            $this->directorySeparator
+        );
+    }
     /**
      * Get current directory separator.
      *
