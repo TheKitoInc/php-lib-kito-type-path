@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class PathFactoryTest extends TestCase
 {
-    const customDirectorySeparator = '-';
+    public const customDirectorySeparator = '-';
 
     public function testFactoryRootPath(): void
     {
