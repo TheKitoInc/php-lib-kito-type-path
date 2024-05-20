@@ -3,4 +3,9 @@
 /tmp/
 .php_cs.cache
 composer.lock
-.phpunit.result.cache
+.phpunit.result.cachelog
+tmp
+.php-cs-fixer.cache
+node_modules
+/log
+log
