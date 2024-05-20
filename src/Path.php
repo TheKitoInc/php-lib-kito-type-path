@@ -237,6 +237,26 @@ class Path implements PathInterface
     }
 
     /**
+     * Return path with new directory separator from current path.
+     *
+     * @param string $directorySeparator DirectorySeparator to be merged before current path
+     *
+     * @return PathInterface
+     */
+    public function withDirectorySeparator(string $directorySeparator): PathInterface
+    {
+        if (in_array($directorySeparator,array('.','..','')))
+        {
+            return $this;
+        }
+
+        return new Path(
+            $this->getElements(),
+            $directorySeparator
+        );
+    }
+
+    /**
      * Get elements of path.
      *
      * @return array
