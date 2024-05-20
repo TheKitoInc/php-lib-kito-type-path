@@ -146,7 +146,7 @@ class Path implements PathInterface
      * @param PathInterface $subPath path to be merged
      *
      * @return PathInterface
-     * 
+     *
      * @deprecated
      */
     public function withPath(PathInterface $subPath): PathInterface
@@ -164,11 +164,10 @@ class Path implements PathInterface
     public function withPrefixPath(PathInterface $path): PathInterface
     {
         return new Path(
-            array_merge($path->getElements(),$this->getElements()),
+            array_merge($path->getElements(), $this->getElements()),
             $this->directorySeparator
         );
     }
-
 
     /**
      * Return new path with current path combined to new path.
@@ -180,7 +179,7 @@ class Path implements PathInterface
     public function withSuffixPath(PathInterface $path): PathInterface
     {
         return new Path(
-            array_merge($this->getElements(),$path->getElements()),
+            array_merge($this->getElements(), $path->getElements()),
             $this->directorySeparator
         );
     }
@@ -194,17 +193,15 @@ class Path implements PathInterface
      */
     public function withPrefixElement(string $element): PathInterface
     {
-        if (in_array($element,array('.','..','','/',"\\",$this->directorySeparator)))
-        {
+        if (in_array($element, ['.', '..', '', '/', '\\', $this->directorySeparator])) {
             return $this;
         }
 
         return new Path(
-            array_merge(array($element),$this->getElements()),
+            array_merge([$element], $this->getElements()),
             $this->directorySeparator
         );
     }
-
 
     /**
      * Return new path with current path combined to new element.
@@ -215,17 +212,16 @@ class Path implements PathInterface
      */
     public function withSuffixElement(string $element): PathInterface
     {
-
-        if (in_array($element,array('.','..','','/',"\\",$this->directorySeparator)))
-        {
+        if (in_array($element, ['.', '..', '', '/', '\\', $this->directorySeparator])) {
             return $this;
         }
 
         return new Path(
-            array_merge($this->getElements(),array($element)),
+            array_merge($this->getElements(), [$element]),
             $this->directorySeparator
         );
     }
+
     /**
      * Get current directory separator.
      *
@@ -245,8 +241,7 @@ class Path implements PathInterface
      */
     public function withDirectorySeparator(string $directorySeparator): PathInterface
     {
-        if (in_array($directorySeparator,array('.','..','')))
-        {
+        if (in_array($directorySeparator, ['.', '..', ''])) {
             return $this;
         }
 
@@ -300,7 +295,7 @@ class Path implements PathInterface
      * @param string $directorySeparator directory char separator
      *
      * @return PathInterface
-     * 
+     *
      * @deprecated
      */
     public function setDirectorySeparator(string $directorySeparator): PathInterface
