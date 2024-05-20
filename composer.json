@@ -3,7 +3,7 @@
     "description": "Sanitize paths and represent by object with methods like getParent",
     "type": "library",
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^10.5",
         "friendsofphp/php-cs-fixer": "^2.18",
         "phpstan/phpstan": "^0.12.85",
         "phpstan/phpstan-strict-rules": "^0.12.9",
@@ -25,5 +25,8 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "test": "phpunit"
+    }
 }
