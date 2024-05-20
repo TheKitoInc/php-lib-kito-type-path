@@ -171,6 +171,21 @@ class Path implements PathInterface
     }
 
     /**
+     * Return new path with current path combined to new path.
+     *
+     * @param PathInterface $path path to be merged after current path
+     *
+     * @return PathInterface
+     */
+    public function withSuffixPath(PathInterface $path): PathInterface
+    {
+        return new Path(
+            array_merge($this->getElements(),$path->getElements()),
+            $this->directorySeparator
+        );
+    }
+
+    /**
      * Get current directory separator.
      *
      * @return string
