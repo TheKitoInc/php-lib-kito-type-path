@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Kito\Path\Path;
-use Kito\Path\PathFactory;
-use Kito\Path\PathInterface;
+use Kito\Type\Path\Path;
+use Kito\Type\Path\PathFactory;
+use Kito\Type\Path\PathInterface;
 use PHPUnit\Framework\TestCase;
 
 class PathFactoryTest extends TestCase
