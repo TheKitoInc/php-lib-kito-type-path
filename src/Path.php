@@ -300,6 +300,8 @@ class Path implements PathInterface
      * @param string $directorySeparator directory char separator
      *
      * @return PathInterface
+     * 
+     * @deprecated
      */
     public function setDirectorySeparator(string $directorySeparator): PathInterface
     {
