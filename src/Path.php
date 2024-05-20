@@ -146,13 +146,12 @@ class Path implements PathInterface
      * @param PathInterface $subPath path to be merged
      *
      * @return PathInterface
+     * 
+     * @deprecated
      */
     public function withPath(PathInterface $subPath): PathInterface
     {
-        return new Path(
-            array_merge($this->getElements(), $subPath->getElements()),
-            $this->directorySeparator
-        );
+        return $this->withPrefixPath($subPath);
     }
 
     /**
