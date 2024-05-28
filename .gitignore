@@ -9,3 +9,4 @@ tmp
 node_modules
 /log
 log
+.phpunit.result.cache
