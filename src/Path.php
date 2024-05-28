@@ -123,7 +123,7 @@ class Path implements PathInterface
      */
     public function __toString(): string
     {
-        return $this->directorySeparator . implode($this->directorySeparator, $this->pathElements);
+        return $this->directorySeparator.implode($this->directorySeparator, $this->pathElements);
     }
 
     /**
