@@ -151,7 +151,7 @@ class Path implements PathInterface
      */
     public function withPath(PathInterface $subPath): PathInterface
     {
-        return $this->withPrefixPath($subPath);
+        return $this->withSuffixPath($subPath);
     }
 
     /**
