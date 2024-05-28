@@ -1,0 +1,13 @@
+includes:
+    - phar://phpstan.phar/conf/config.levelmax.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+
+parameters:
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
+    tmpDir: tmp/
+    paths:
+        - src/
+        - tests/
+    ignoreErrors:

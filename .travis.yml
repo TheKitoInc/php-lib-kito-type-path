@@ -1,0 +1,22 @@
+language: php
+
+dist: bionic
+
+sudo: false
+
+php:      
+    - 7.4
+    - 8.0
+    - nightly    
+
+jobs:
+  allow_failures:
+    - php: nightly
+
+install:
+    - composer update
+    - composer install
+
+script:
+    - vendor/bin/phpunit
+        
