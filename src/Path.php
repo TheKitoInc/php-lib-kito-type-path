@@ -187,18 +187,18 @@ class Path implements PathInterface
     /**
      * Return new path prefix with new element from current path.
      *
-     * @param string $element element to be merged before current path
+     * @param string $prefix element to be merged before current path
      *
      * @return PathInterface
      */
-    public function withPrefixElement(string $element): PathInterface
+    public function withPrefix(string $prefix): PathInterface
     {
-        if (in_array($element, ['.', '..', '', '/', '\\', $this->directorySeparator])) {
+        if (in_array($prefix, ['.', '..', '', '/', '\\', $this->directorySeparator])) {
             return $this;
         }
 
         return new Path(
-            array_merge([$element], $this->getElements()),
+            array_merge([$prefix], $this->getElements()),
             $this->directorySeparator
         );
     }
@@ -206,18 +206,18 @@ class Path implements PathInterface
     /**
      * Return new path with current path combined to new element.
      *
-     * @param string $element element to be merged after current path
+     * @param string $suffix element to be merged after current path
      *
      * @return PathInterface
      */
-    public function withSuffixElement(string $element): PathInterface
+    public function withSuffix(string $suffix): PathInterface
     {
-        if (in_array($element, ['.', '..', '', '/', '\\', $this->directorySeparator])) {
+        if (in_array($suffix, ['.', '..', '', '/', '\\', $this->directorySeparator])) {
             return $this;
         }
 
         return new Path(
-            array_merge($this->getElements(), [$element]),
+            array_merge($this->getElements(), [$suffix]),
             $this->directorySeparator
         );
     }
