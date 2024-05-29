@@ -1,4 +1,5 @@
 <?php
+
 spl_autoload_register(
     function ($classNameSpace) {
         $classNameSpace = explode(DIRECTORY_SEPARATOR, str_replace('/', DIRECTORY_SEPARATOR, str_replace("\\", DIRECTORY_SEPARATOR, $classNameSpace)));
@@ -13,6 +14,6 @@ spl_autoload_register(
 
         if(file_exists($classPath)) {
             require_once $classPath;
-	}
+        }
     }
 );
