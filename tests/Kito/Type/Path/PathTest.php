@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace Kito\Type\Path;
 
-use PHPUnit\Framework\TestCase;
-
-class PathTest extends TestCase
+/**
+ * @deprecated replaced by \Kito\Type\PathTest
+ */
+class PathTest extends \Kito\Type\PathTest
 {
-    public function testPathClassConstructor(): void
-    {
-        $object = new Path();
-        $this->assertInstanceOf(Path::class, $object);
-    }
 }
