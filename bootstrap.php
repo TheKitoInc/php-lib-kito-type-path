@@ -14,6 +14,7 @@ spl_autoload_register(
 
         if (file_exists($classPath)) {
             require_once $classPath;
+
             return;
         }
 
@@ -21,6 +22,7 @@ spl_autoload_register(
 
         if (file_exists($classPath)) {
             require_once $classPath;
+
             return;
         }
     }
