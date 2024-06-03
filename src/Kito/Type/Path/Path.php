@@ -147,7 +147,7 @@ class Path implements PathInterface
      *
      * @return PathInterface
      *
-     * @deprecated
+     * @deprecated replaced by withSuffixPath
      */
     public function withPath(PathInterface $subPath): PathInterface
     {
