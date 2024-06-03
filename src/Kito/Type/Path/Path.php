@@ -296,7 +296,7 @@ class Path implements PathInterface
      *
      * @return PathInterface
      *
-     * @deprecated
+     * @deprecated replaced by withDirectorySeparator
      */
     public function setDirectorySeparator(string $directorySeparator): PathInterface
     {
