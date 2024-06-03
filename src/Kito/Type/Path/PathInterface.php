@@ -33,7 +33,6 @@ interface PathInterface extends \Kito\Type\PathInterface
      */
     public function setDirectorySeparator(string $directorySeparator): PathInterface;
 
-
     /**
      * Return new path with current path combined to new sub path.
      *
@@ -44,6 +43,4 @@ interface PathInterface extends \Kito\Type\PathInterface
      * @deprecated replaced by withSuffixPath
      */
     public function withPath(PathInterface $subPath): PathInterface;
-
-
 }

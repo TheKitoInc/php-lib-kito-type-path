@@ -29,8 +29,6 @@ interface PathInterface
      */
     public function getDirectorySeparator(): string;
 
-
-
     /**
      * Return path with new directory separator from current path.
      *
@@ -108,8 +106,6 @@ interface PathInterface
      * @return string
      */
     public function __toString(): string;
-
-
 
     /**
      * Return new path with current path combined to new path.
