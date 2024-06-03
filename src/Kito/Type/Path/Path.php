@@ -19,8 +19,8 @@ namespace Kito\Type\Path;
 
 /**
  * Path Class.
- * 
- * @deprecated replaced by \Kito\Type\Path 
+ *
+ * @deprecated replaced by \Kito\Type\Path
  */
 class Path extends \Kito\Type\Path implements PathInterface
 {
