@@ -35,7 +35,7 @@ interface PathInterface
      * @param string $directorySeparator directory char separator
      *
      * @return Path
-     * 
+     *
      * @deprecated replaced by withDirectorySeparator
      */
     public function setDirectorySeparator(string $directorySeparator): PathInterface;
@@ -124,7 +124,7 @@ interface PathInterface
      * @param Path $subPath path to be merged
      *
      * @return Path
-     * 
+     *
      * @deprecated replaced by withSuffixPath
      */
     public function withPath(PathInterface $subPath): PathInterface;
