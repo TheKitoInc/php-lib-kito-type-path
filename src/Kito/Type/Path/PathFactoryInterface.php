@@ -19,25 +19,9 @@ namespace Kito\Type\Path;
 
 /**
  * Path Class.
+ *
+ * @deprecated replaced by PathFactoryInterface
  */
-interface PathFactoryInterface
+interface PathFactoryInterface extends \Kito\Type\PathFactoryInterface
 {
-    /**
-     * Create Path object from path string and directory separator char.
-     *
-     * @param string $stringPath         path string
-     * @param string $directorySeparator directory char separator
-     *
-     * @return PathInterface
-     */
-    public static function createPathFromString(string $stringPath = DIRECTORY_SEPARATOR, string $directorySeparator = DIRECTORY_SEPARATOR): PathInterface;
-
-    /**
-     * Create root Path object with separator char.
-     *
-     * @param string $directorySeparator directory char separator
-     *
-     * @return PathInterface
-     */
-    public static function createRootPath(string $directorySeparator = DIRECTORY_SEPARATOR): PathInterface;
 }
