@@ -20,7 +20,7 @@ namespace Kito\Type\Path;
 /**
  * Path Interface.
  *
- * deprecated replaced by \Kito\Type\PathInterface
+ * @deprecated replaced by \Kito\Type\PathInterface
  */
 interface PathInterface extends \Kito\Type\PathInterface
 {
