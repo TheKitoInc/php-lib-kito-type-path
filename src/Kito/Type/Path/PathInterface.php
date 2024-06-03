@@ -129,7 +129,7 @@ interface PathInterface
      */
     public function withPath(PathInterface $subPath): PathInterface;
 
-        /**
+    /**
      * Return new path with current path combined to new path.
      *
      * @param PathInterface $path path to be merged after current path
