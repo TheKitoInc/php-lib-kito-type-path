@@ -22,8 +22,6 @@ namespace Kito\Type\Path;
  */
 interface PathInterface extends \Kito\Type\PathInterface
 {
-   
-
     /**
      * Set directory separator.
      *
@@ -35,7 +33,7 @@ interface PathInterface extends \Kito\Type\PathInterface
      */
     public function setDirectorySeparator(string $directorySeparator): PathInterface;
 
- 
+
     /**
      * Return new path with current path combined to new sub path.
      *
@@ -47,5 +45,5 @@ interface PathInterface extends \Kito\Type\PathInterface
      */
     public function withPath(PathInterface $subPath): PathInterface;
 
- 
+
 }
