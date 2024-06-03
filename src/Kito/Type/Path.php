@@ -126,10 +126,6 @@ class Path implements PathInterface
         return $this->directorySeparator.implode($this->directorySeparator, $this->pathElements);
     }
 
-
-
-
-
     /**
      * Return new path with prefix path combined to current path.
      *
@@ -264,6 +260,4 @@ class Path implements PathInterface
     {
         return hash($hashFunction, implode(chr(0), $this->pathElements));
     }
-
-
 }
