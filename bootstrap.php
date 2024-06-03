@@ -14,6 +14,14 @@ spl_autoload_register(
 
         if (file_exists($classPath)) {
             require_once $classPath;
+            return;
+        }
+
+        $classPath = __DIR__.DIRECTORY_SEPARATOR.'tests'.DIRECTORY_SEPARATOR.implode(DIRECTORY_SEPARATOR, $classNameSpace).'.php';
+
+        if (file_exists($classPath)) {
+            require_once $classPath;
+            return;
         }
     }
 );
