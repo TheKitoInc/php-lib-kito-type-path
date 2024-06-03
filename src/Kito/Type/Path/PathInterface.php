@@ -35,8 +35,19 @@ interface PathInterface
      * @param string $directorySeparator directory char separator
      *
      * @return Path
+     * 
+     * @deprecated replaced by withDirectorySeparator
      */
     public function setDirectorySeparator(string $directorySeparator): PathInterface;
+
+    /**
+     * Return path with new directory separator from current path.
+     *
+     * @param string $directorySeparator DirectorySeparator to be merged before current path
+     *
+     * @return PathInterface
+     */
+    public function withDirectorySeparator(string $directorySeparator): PathInterface;
 
     /**
      * Get elements of path.
