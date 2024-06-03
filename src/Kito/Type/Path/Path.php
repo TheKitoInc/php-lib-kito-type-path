@@ -50,7 +50,6 @@ class Path extends \Kito\Type\Path implements PathInterface
         return $this->withSuffixPath($subPath);
     }
 
-
     /**
      * Set directory separator.
      *
