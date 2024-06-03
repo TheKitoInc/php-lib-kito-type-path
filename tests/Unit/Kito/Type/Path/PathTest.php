@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Kito\Type;
+
 use Kito\Type\Path\Path;
 use PHPUnit\Framework\TestCase;
 
