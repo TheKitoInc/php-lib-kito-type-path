@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Kito\Type\Path;
 
-use Kito\Type\Path\Path;
 use PHPUnit\Framework\TestCase;
 
 class PathTest extends TestCase
